@@ -230,6 +230,7 @@ while encendido == True:
                     game_over = False
                     ganador = False
                     ingreso_nombre = False
+                    nombre_ingresado = ""
                     buscaminas = inicializar_matriz(matriz_a_crear,0)
                     descubierto = inicializar_matriz(matriz_a_crear,False)
                     matriz_bandera = inicializar_matriz(matriz_a_crear,False)
@@ -244,6 +245,7 @@ while encendido == True:
                     game_over = False
                     ganador = False
                     ingreso_nombre = False
+                    nombre_ingresado = ""
                     buscaminas = inicializar_matriz(matriz_a_crear,0)
                     descubierto = inicializar_matriz(matriz_a_crear,False)
                     matriz_bandera = inicializar_matriz(matriz_a_crear,False)
