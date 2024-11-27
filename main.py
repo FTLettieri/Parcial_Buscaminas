@@ -254,7 +254,6 @@ while encendido == True:
                     matriz_bandera = inicializar_matriz(matriz_a_crear,False)
                     matriz_area = inicializar_matriz(matriz_a_crear,False)
 
-
                 mouse_pos_click = pygame.mouse.get_pos()
 
                 fila = int((mouse_pos_click[1] - alto_marcador) // tamaño_bloque) # le resto los pixeles del marcador antes de dividir
