@@ -47,9 +47,9 @@ FUENTE_NOMBRE_RESULTADO = pygame.font.Font(ruta_fuentes + "GameBubleDEMO.otf", 2
 UN_SEGUNDO = 1000
 
     # Cantidad filas, cantidad columnas, cantidad minas
-MATRIZ_FACIL = (8, 8, 4)
+MATRIZ_FACIL = (8, 8, 10)
 MATRIZ_MEDIO = (16, 16, 40)
-MATRIZ_DIFICIL = (24, 24, 120)
+MATRIZ_DIFICIL = (24, 24, 90)
 
 #-------------------------------------------------CONFIGS VARIABLES--------------------------------------------------#
 instancia_pantalla = "MENU"
@@ -62,9 +62,6 @@ alto_marcador = 120
 tamaño_bloque = 25
 
     # imagen
-# imagen_mina = cargar_imagen(ruta_imagenes + "mina.png", (20, 20)) # Cargar una imagen
-# imagen_cruz = cargar_imagen(ruta_imagenes + "cruz.png", (20, 20)) # Cargar una imagen
-# imagen_bandera = cargar_imagen(ruta_imagenes + "bandera.png", (30, 30)) # Cargar una imagen
 imagen_fondo_menu = cargar_imagen(ruta_imagenes + "fondo.jpg", RESOLUCION_SCREEN) # Cargar una imagen
 imagen_fondo_niveles = cargar_imagen(ruta_imagenes + "fondo_niveles.jpg", RESOLUCION_SCREEN) # Cargar una imagen
 imagen_fondo_puntajes = cargar_imagen(ruta_imagenes + "confeti.jpg", RESOLUCION_SCREEN) # Cargar una imagen

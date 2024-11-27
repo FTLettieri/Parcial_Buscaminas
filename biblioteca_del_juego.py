@@ -181,10 +181,10 @@ def controlar_victoria(matriz_comparacion:list, matriz_parametro:list)-> bool:
         ganador = True
     return ganador
 
-def dibujar_tablero(screen:any, buscaminas:list, tamaño_bloque:int, font:any)->None:
+def dibujar_tablero(screen:any, buscaminas:list, tamaño_bloque:int, font:any, imagen_mina:any, imagen_cruz:any)->None:
     '''
     Dibuja el tablero
-    Recibe la pantalla, el tablero, el tamaño del bloque y la fuente
+    Recibe la pantalla, el tablero, el tamaño del bloque, la fuente y las imagenes de mina y cruz
     No tiene retorno
     '''
     # Armar el tablero
@@ -222,15 +222,15 @@ def dibujar_tablero(screen:any, buscaminas:list, tamaño_bloque:int, font:any)->
             
             if valor == -1:
             # Muestro mina
-                imagen_mina = cargar_imagen(ruta_imagenes + "mina.png", (tamaño_bloque*0.8, tamaño_bloque*0.8)) 
+                # imagen_mina = cargar_imagen(ruta_imagenes + "mina.png", (tamaño_bloque*0.8, tamaño_bloque*0.8)) 
                 imagen_rect_mina = imagen_mina.get_rect(center=(x + tamaño_bloque / 2, y + tamaño_bloque / 2)) # get_rect -> coordenadas
                 screen.blit(imagen_mina, imagen_rect_mina)
             elif valor == -2:
             # Muestro mina con cruz y reproduzco el sonido de la explosion una sola vez
                 # explosion.play(0)
-                imagen_mina = cargar_imagen(ruta_imagenes + "mina.png", (tamaño_bloque*0.8, tamaño_bloque*0.8)) # Cargar una imagen
+                # imagen_mina = cargar_imagen(ruta_imagenes + "mina.png", (tamaño_bloque*0.8, tamaño_bloque*0.8)) # Cargar una imagen
                 imagen_rect_mina = imagen_mina.get_rect(center=(x + tamaño_bloque / 2, y + tamaño_bloque / 2)) # get_rect -> coordenadas
-                imagen_cruz = cargar_imagen(ruta_imagenes + "cruz.png", (tamaño_bloque*0.8, tamaño_bloque*0.8)) # Cargar una imagen
+                # imagen_cruz = cargar_imagen(ruta_imagenes + "cruz.png", (tamaño_bloque*0.8, tamaño_bloque*0.8)) # Cargar una imagen
                 imagen_rect_cruz = imagen_cruz.get_rect(center=(x + tamaño_bloque / 2, y + tamaño_bloque / 2)) # get_rect -> coordenadas
                 screen.blit(imagen_mina, imagen_rect_mina)
                 screen.blit(imagen_cruz, imagen_rect_cruz)
@@ -254,16 +254,16 @@ def dibujar_tablero_vacio(screen:any, buscaminas:list, descubierto:list, tamaño
                 pygame.draw.rect(screen, BG_COLOR2, rect) # cuadrado
                 pygame.draw.rect(screen, COLOR_NEGRO, rect, 1) # borde
 
-def dibujar_tablero_bandera(screen:any, buscaminas:list, matriz_bandera:list, tamaño_bloque:int)->None:
+def dibujar_tablero_bandera(screen:any, buscaminas:list, matriz_bandera:list, tamaño_bloque:int, imagen_bandera:any)->None:
     '''
     Dibuja el tablero con banderas
-    Recibe la pantalla, el tablero, la matriz de banderas y el tamaño del bloque
+    Recibe la pantalla, el tablero, la matriz de banderas, el tamaño del bloque y la imagen de la bandera
     No tiene retorno
     '''
     for fila in range(len(buscaminas)):
         for columna in range(len(buscaminas[fila])):
             if matriz_bandera[fila][columna] == True:
-                imagen_bandera = cargar_imagen(ruta_imagenes + "bandera.png", (tamaño_bloque*0.8, tamaño_bloque*0.8)) # Cargar una imagen
+                # imagen_bandera = cargar_imagen(ruta_imagenes + "bandera.png", (tamaño_bloque*0.8, tamaño_bloque*0.8)) # Cargar una imagen
                 screen.blit(imagen_bandera, (columna * tamaño_bloque + 10, fila * tamaño_bloque + alto_marcador )) # le sumo los pixels de la cabecera en fila
 
 def simular_cronometro(segundos:int, contador_minutos:int, contador_horas:int) ->list:

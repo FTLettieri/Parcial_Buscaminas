@@ -94,9 +94,9 @@ while encendido == True:
             superficie_score = FUENTE_NUMEROS.render(puntaje, False, COLOR_ROJO)
             puntaje = str(Score['Puntaje']).zfill(3)
             screen.blit(superficie_score, (70,punto_y_contadores_del_marcador+16))
-            dibujar_tablero(screen, buscaminas, tamaño_bloque, font)
+            dibujar_tablero(screen, buscaminas, tamaño_bloque, font, imagen_mina, imagen_cruz)
             dibujar_tablero_vacio(screen, buscaminas, descubierto, tamaño_bloque)
-            dibujar_tablero_bandera(screen, buscaminas, matriz_bandera, tamaño_bloque)
+            dibujar_tablero_bandera(screen, buscaminas, matriz_bandera, tamaño_bloque, imagen_bandera)
 
             #INVOCACION DE BOTONES CON SUS CORRESPONDIENTES HITBOX
             hitbox_abandonar = pygame.draw.rect(screen, (COLOR_GRIS), (ubicacion_X_botones, ubicación_Y_abandonar, 40, 40), width=100)
@@ -204,6 +204,9 @@ while encendido == True:
                 # Inicializamos todas las matrices
                 if matriz_a_crear != 0:
                     tamaño_bloque = ((ALTO_SCREEN-120) / matriz_a_crear[1])
+                    imagen_mina = cargar_imagen(ruta_imagenes + "mina.png", (tamaño_bloque, tamaño_bloque)) # Cargar una imagen
+                    imagen_cruz = cargar_imagen(ruta_imagenes + "cruz.png", (tamaño_bloque, tamaño_bloque)) # Cargar una imagen
+                    imagen_bandera = cargar_imagen(ruta_imagenes + "bandera.png", (tamaño_bloque, tamaño_bloque)) # Cargar una imagen
                     buscaminas = inicializar_matriz(matriz_a_crear,0)
                     descubierto = inicializar_matriz(matriz_a_crear,False)
                     victoria = inicializar_matriz(matriz_a_crear,False)
