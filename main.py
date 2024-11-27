@@ -19,9 +19,9 @@ pygame.display.set_caption("BUSCAMINAS")
 pygame.time.set_timer(evento_cronometro, UN_SEGUNDO)
 
 #--------------------------------------------------SONIDOS--------------------------------------------------------#
-# mixer.music.load(ruta_sonidos + "musica_de_fondo.mp3")
-# mixer.music.set_volume(0.4)
-# mixer.music.play(-1)
+mixer.music.load(ruta_sonidos + "musica_de_fondo.mp3")
+mixer.music.set_volume(0.4)
+mixer.music.play(-1)
 
 #--------------------------------------------------PUNTAJES-------------------------------------------------------#
 jugadores = leer_jugadores(archivo_puntajes)
