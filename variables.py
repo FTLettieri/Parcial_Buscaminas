@@ -47,7 +47,7 @@ FUENTE_NOMBRE_RESULTADO = pygame.font.Font(ruta_fuentes + "GameBubleDEMO.otf", 2
 UN_SEGUNDO = 1000
 
     # Cantidad filas, cantidad columnas, cantidad minas
-MATRIZ_FACIL = (8, 8, 4)
+MATRIZ_FACIL = (8, 8, 10)
 MATRIZ_MEDIO = (16, 16, 40)
 MATRIZ_DIFICIL = (24, 24, 90)
 
@@ -111,7 +111,7 @@ superficie_nivel = FUENTE_OPCIONES.render(opcion_nivel, False, (COLOR_NEGRO))
 
 #UNA VEZ DENTRO DE OPCION NIVEL
 nivel_titulo = "DIFICULTAD"
-superficie_nivel_titulo =FUENTE_TITULOS.render(nivel_titulo, True, (COLOR_NEGRO))
+superficie_nivel_titulo = FUENTE_TITULOS.render(nivel_titulo, True, (COLOR_NEGRO))
 ancho_nivel_titulo = superficie_nivel_titulo.get_width()
 ubicacion_x__nivel_titulo = ((ANCHO_SCREEN - ancho_nivel_titulo) / 2) + 1
 ubicacion_xy_nivel_titulo = (ubicacion_x__nivel_titulo, ubicacion_Y_titulos)
