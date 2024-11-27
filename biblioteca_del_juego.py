@@ -295,13 +295,17 @@ def leer_jugadores(archivo_puntajes:str)->dict:
         with open(archivo_puntajes, 'r') as archivo:
             jugadores = json.load(archivo)
         archivo.close()
-        return jugadores
     except FileNotFoundError:
+        jugadores = []
+        for i in range(1,4):
+            jugador = {"Jugador": 'Ricky', "Puntaje":i}
+            jugadores.append(jugador)
+
         with open(archivo_puntajes,"w") as archivo:
             json.dump(jugadores, archivo, indent=4)
             
-    except json.JSONDecodeError:
-        return jugadores
+    # except json.JSONDecodeError:
+    return jugadores
 
 def escribir_y_ordenar_jugadores(archivo_puntajes:str, jugador:dict)->None:
     '''

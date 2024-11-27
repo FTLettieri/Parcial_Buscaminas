@@ -99,6 +99,7 @@ mensaje_ganaste = "Ganaste"
 mensaje_ingreso_nombre = "Ingresa tu nombre"
 nombre_ingresado = ""
 jugadores = {}
+jugador = {}
 
 #OPCIONES
 inicio_ubicacion_x_opciones = 130
