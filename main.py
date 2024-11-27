@@ -19,9 +19,9 @@ pygame.display.set_caption("BUSCAMINAS")
 pygame.time.set_timer(evento_cronometro, UN_SEGUNDO)
 
 #--------------------------------------------------SONIDOS--------------------------------------------------------#
-mixer.music.load(ruta_sonidos + "musica_de_fondo.mp3")
-mixer.music.set_volume(0.4)
-mixer.music.play(-1)
+# mixer.music.load(ruta_sonidos + "musica_de_fondo.mp3")
+# mixer.music.set_volume(0.4)
+# mixer.music.play(-1)
 
 #--------------------------------------------------PUNTAJES-------------------------------------------------------#
 jugadores = leer_jugadores(archivo_puntajes)
@@ -209,8 +209,8 @@ while encendido == True:
                     imagen_bandera = cargar_imagen(ruta_imagenes + "bandera.png", (tamaño_bloque, tamaño_bloque)) # Cargar una imagen
                     buscaminas = inicializar_matriz(matriz_a_crear,0)
                     descubierto = inicializar_matriz(matriz_a_crear,False)
-                    victoria = inicializar_matriz(matriz_a_crear,False)
-                    victoria2 = inicializar_matriz(matriz_a_crear,False)
+                    victoria_bandera = inicializar_matriz(matriz_a_crear,False)
+                    victoria_evitar_minas = inicializar_matriz(matriz_a_crear,False)
                     matriz_bandera = inicializar_matriz(matriz_a_crear,False)
                     matriz_area = inicializar_matriz(matriz_a_crear,False)
 
@@ -262,11 +262,10 @@ while encendido == True:
 
                 if evento.button == 1 and (fila < len(buscaminas) and columna < len(buscaminas[0])) and (game_over == False and ganador == False) and bordes_marcador.collidepoint(XY_CLICK) == False: 
                     if Empezo == False:
-
                         definir_area_primer_click(matriz_area, fila, columna)
                         cargar_minas(buscaminas, matriz_area, matriz_a_crear)
-                        crear_condicion_victoria(buscaminas, victoria, -1, True, False) # crea condicion de victoria por minas
-                        crear_condicion_victoria(buscaminas, victoria2,  0, True, False) # crea condicion de victoria por banderas
+                        crear_condicion_victoria(buscaminas, victoria_bandera, -1, True, False) # crea condicion de victoria por minas
+                        crear_condicion_victoria(buscaminas, victoria_evitar_minas,  0, True, False) # crea condicion de victoria por banderas
                         definir_valores_campos(buscaminas)
                         Empezo = True
                         game_over = False
@@ -284,13 +283,15 @@ while encendido == True:
                         colocar_bandera(matriz_bandera,fila,columna)
 
                 if Empezo:
-                    if (controlar_victoria(matriz_bandera, victoria) or controlar_victoria(descubierto, victoria2)):
+                    if (controlar_victoria(matriz_bandera, victoria_bandera) or controlar_victoria(descubierto, victoria_evitar_minas)):
                         matriz_bandera = inicializar_matriz(matriz_a_crear,False)
                         descubierto = inicializar_matriz(matriz_a_crear, True)
                         calcular_puntaje(descubierto, Score, True, matriz_a_crear)
                         tiempo_total = segundos + minutos * 60 + horas * 3600
+                        resta_puntos = 150 - tiempo_total
                         Score['Tiempo'] = tiempo_total
-                        Score['Puntaje'] += tiempo_total 
+                        if resta_puntos > 0:
+                            Score['Puntaje'] += resta_puntos 
                         ganador = True
 
         if evento.type == evento_cronometro and ganador == False and game_over == False:

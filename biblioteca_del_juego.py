@@ -71,7 +71,7 @@ def imprimir_matriz(matriz:list)->None:
                 print(f"{matriz[i][j]:3}", end=" ")
         print("")
 
-def crear_condicion_victoria(matriz:list,matriz_descu:bool,condicion:any, parametro:bool, parametro2:bool)->None:
+def crear_condicion_victoria(matriz:list,matriz_descu:bool,condicion:any, parametro:any, parametro2:any)->None:
     '''
     Crea una matriz de booleanos con la condicion de victoria
     Recibe una matriz, una matriz de booleanos, una condicion, un parametro y un parametro2
@@ -177,6 +177,7 @@ def controlar_victoria(matriz_comparacion:list, matriz_parametro:list)-> bool:
     Devuelve un booleano
     '''
     ganador = False
+
     if matriz_comparacion == matriz_parametro:
         ganador = True
     return ganador
