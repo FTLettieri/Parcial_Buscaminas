@@ -14,7 +14,6 @@ screen = pygame.display.set_mode(RESOLUCION_SCREEN)
 
 #---------------------------------------------DESARROLLO MENÚ PRINCIPAL----------------------------------------------#
 #--------------------------------------------------CONFIGS VARIAS----------------------------------------------------#
-
 pygame.display.set_caption("BUSCAMINAS")
 pygame.time.set_timer(evento_cronometro, UN_SEGUNDO)
 
